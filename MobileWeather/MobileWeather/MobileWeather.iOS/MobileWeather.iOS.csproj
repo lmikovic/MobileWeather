@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{59E00B52-E196-4D45-9A2B-9584379675A4}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MobileWeather.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>MobileWeather.iOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>4.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Settings">
+      <Version>3.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.583944" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\MobileWeather\MobileWeather.csproj">
+      <Project>{C53E4E8F-FDE1-4C4C-B5A8-55364C2AF430}</Project>
+      <Name>MobileWeather</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s02n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s03d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s03n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s04d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s04n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s05d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s05n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s06d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s06n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sleet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\snow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\t01d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\t01n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\t02d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\t02n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\t03d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\t03n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\t04d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\t04n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\t05d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\t05n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thunderstorm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\u00d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\u00n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a01d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a01n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a02d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a02n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a03d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a03n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a04d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a04n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a05d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a05n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a06d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a06n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\c01d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\c01n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\c02d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\c02n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\c03d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\c03n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\c04d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\c04n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clear_day.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clear_night.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cloudy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\d01d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\d01n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\d02d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\d02n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\d03d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\d03n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_113.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_116.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_119.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_122.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_143.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_176.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_179.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_182.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_185.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_227.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_230.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_248.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_260.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_263.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_266.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_281.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_284.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_293.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_296.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_299.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_302.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_305.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_308.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_311.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_314.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_317.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_320.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_329.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_332.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_335.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_338.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_350.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_353.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_356.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_359.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_362.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_365.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_368.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_371.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_374.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_377.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_386.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_389.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_392.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\day_395.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\f01d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\f01n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_113.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_116.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_119.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_122.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_143.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_176.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_179.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_182.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_185.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_227.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_230.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_248.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_260.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_263.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_266.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_281.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_284.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_293.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_296.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_299.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_302.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_305.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_308.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_311.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_314.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_317.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_320.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_329.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_332.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_335.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_338.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_350.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_353.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_356.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_359.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_362.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_365.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_368.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_371.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_374.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_377.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_386.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_389.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_392.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\night_395.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\partly_cloudy_day.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\partly_cloudy_night.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r01d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r01n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r02d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r02n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r03d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r03n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r04d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r04n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r05d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r05n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r06d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\r06n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s01d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s01n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\s02d.png" />
+  </ItemGroup>
+</Project>

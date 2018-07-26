@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MobileWeather.Converters"
+             x:Class="MobileWeather.Views.Weather">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:PathConverter x:Key="PathConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Refresh" Order="Secondary" Text="Refresh" Command="{Binding RefreshCommand}"/>
+        <ToolbarItem x:Name="Settings" Order="Secondary" Text="Settings" Command="{Binding SettingsCommand}"/>
+        <ToolbarItem x:Name="Exit" Order="Secondary" Text="Exit" Command="{Binding ExitCommand}" />
+    </ContentPage.ToolbarItems>    
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+            <ListView x:Name="WeatherListView" ItemsSource="{Binding ForecastList}" HasUnevenRows="true" SeparatorVisibility="None" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+                <ListView.Header>
+                    <StackLayout x:Name="currentWeather">
+                        <Label FontSize="Large" FontAttributes="Bold" Text="{Binding City}" HorizontalOptions="Center" />
+                        <Image WidthRequest="64" HeightRequest="64" Source="{Binding WeatherIcon, Converter={StaticResource PathConverter}}"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Label Text="{Binding Temperature}" FontSize="Medium" />
+                            <Label Text="{Binding TempUnit}" FontSize="Medium" />
+                        </StackLayout>
+                        <Label Text="{Binding Description, StringFormat='Summary: {0}'}" HorizontalTextAlignment="Center" />
+                        <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand">
+                            <Label Text="{Binding Pressure, StringFormat='press: {0}'}" FontSize="Small" />
+                            <Label Text="{Binding WindSpeed, StringFormat='wind: {0}'}" FontSize="Small"/>
+                            <Label Text="{Binding Humidity, StringFormat='hum: {0}'}" FontSize="Small"/>
+                        </StackLayout>
+                        <Label Text="{Binding LastUpdate, StringFormat='last update: {0}'}" HorizontalTextAlignment="Center" FontSize="Micro" Margin="0,10,0,0" />
+                        <Label Text="Weather forecast" Margin="0,20,0,5" FontSize="Medium" />
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="0,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*" />
+                                    <ColumnDefinition Width="20*" />
+                                    <ColumnDefinition Width="30*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Date, StringFormat='{0:dd.MM. dddd}'}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Column="0" Margin="10,0" />
+                                <Image HeightRequest="32" WidthRequest="32" Source="{Binding Icon, Converter={StaticResource PathConverter}}" Grid.Column="1" Margin="10,0" HorizontalOptions="Center" />
+                                <StackLayout Grid.Column="2" Margin="10,0" HorizontalOptions="Center">
+                                    <Label Text="{Binding TemperatureMax, StringFormat='Max {0}'}" TextColor="Green" />
+                                    <Label Text="{Binding TemperatureMin, StringFormat='Min {0}'}" TextColor="Red" />
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

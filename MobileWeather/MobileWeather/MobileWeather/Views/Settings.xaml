@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileWeather.Views.Settings"
+             Title="Settings">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="15">
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Label Text="Use Imperial" VerticalOptions="Center" />
+                <Switch x:Name="isImperial" IsToggled="{Binding IsImperial}" VerticalOptions="Center" />
+            </StackLayout>
+            <Label Text="City:" />
+            <Entry x:Name="cityName" Text="{Binding CityName}" Placeholder="City name" />
+            <Label Text="Weather provider:" />
+            <Picker x:Name="weatherServices" ItemsSource="{Binding WeahterServiceList}" SelectedItem="{Binding SelectedWeatherServices}" />
+            <Button x:Name="saveButon" Text="Save" Command="{Binding SaveCommand}" />
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

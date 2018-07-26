@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{866DBA85-E985-4845-9D00-CEDDFD0E845D}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MobileWeather.UWP</RootNamespace>
+    <AssemblyName>MobileWeather.UWP</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>MobileWeather.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\a01d.png" />
+    <Content Include="Assets\a01n.png" />
+    <Content Include="Assets\a02d.png" />
+    <Content Include="Assets\a02n.png" />
+    <Content Include="Assets\a03d.png" />
+    <Content Include="Assets\a03n.png" />
+    <Content Include="Assets\a04d.png" />
+    <Content Include="Assets\a04n.png" />
+    <Content Include="Assets\a05d.png" />
+    <Content Include="Assets\a05n.png" />
+    <Content Include="Assets\a06d.png" />
+    <Content Include="Assets\a06n.png" />
+    <Content Include="Assets\c01d.png" />
+    <Content Include="Assets\c01n.png" />
+    <Content Include="Assets\c02d.png" />
+    <Content Include="Assets\c02n.png" />
+    <Content Include="Assets\c03d.png" />
+    <Content Include="Assets\c03n.png" />
+    <Content Include="Assets\c04d.png" />
+    <Content Include="Assets\c04n.png" />
+    <Content Include="Assets\clear_day.png" />
+    <Content Include="Assets\clear_night.png" />
+    <Content Include="Assets\cloudy.png" />
+    <Content Include="Assets\d01d.png" />
+    <Content Include="Assets\d01n.png" />
+    <Content Include="Assets\d02d.png" />
+    <Content Include="Assets\d02n.png" />
+    <Content Include="Assets\d03d.png" />
+    <Content Include="Assets\d03n.png" />
+    <Content Include="Assets\day_113.png" />
+    <Content Include="Assets\day_116.png" />
+    <Content Include="Assets\day_119.png" />
+    <Content Include="Assets\day_122.png" />
+    <Content Include="Assets\day_143.png" />
+    <Content Include="Assets\day_176.png" />
+    <Content Include="Assets\day_179.png" />
+    <Content Include="Assets\day_182.png" />
+    <Content Include="Assets\day_185.png" />
+    <Content Include="Assets\day_200.png" />
+    <Content Include="Assets\day_227.png" />
+    <Content Include="Assets\day_230.png" />
+    <Content Include="Assets\day_248.png" />
+    <Content Include="Assets\day_260.png" />
+    <Content Include="Assets\day_263.png" />
+    <Content Include="Assets\day_266.png" />
+    <Content Include="Assets\day_281.png" />
+    <Content Include="Assets\day_284.png" />
+    <Content Include="Assets\day_293.png" />
+    <Content Include="Assets\day_296.png" />
+    <Content Include="Assets\day_299.png" />
+    <Content Include="Assets\day_302.png" />
+    <Content Include="Assets\day_305.png" />
+    <Content Include="Assets\day_308.png" />
+    <Content Include="Assets\day_311.png" />
+    <Content Include="Assets\day_314.png" />
+    <Content Include="Assets\day_317.png" />
+    <Content Include="Assets\day_320.png" />
+    <Content Include="Assets\day_323.png" />
+    <Content Include="Assets\day_326.png" />
+    <Content Include="Assets\day_329.png" />
+    <Content Include="Assets\day_332.png" />
+    <Content Include="Assets\day_335.png" />
+    <Content Include="Assets\day_338.png" />
+    <Content Include="Assets\day_350.png" />
+    <Content Include="Assets\day_353.png" />
+    <Content Include="Assets\day_356.png" />
+    <Content Include="Assets\day_359.png" />
+    <Content Include="Assets\day_362.png" />
+    <Content Include="Assets\day_365.png" />
+    <Content Include="Assets\day_368.png" />
+    <Content Include="Assets\day_371.png" />
+    <Content Include="Assets\day_374.png" />
+    <Content Include="Assets\day_377.png" />
+    <Content Include="Assets\day_386.png" />
+    <Content Include="Assets\day_389.png" />
+    <Content Include="Assets\day_392.png" />
+    <Content Include="Assets\day_395.png" />
+    <Content Include="Assets\f01d.png" />
+    <Content Include="Assets\f01n.png" />
+    <Content Include="Assets\fog.png" />
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\night_113.png" />
+    <Content Include="Assets\night_116.png" />
+    <Content Include="Assets\night_119.png" />
+    <Content Include="Assets\night_122.png" />
+    <Content Include="Assets\night_143.png" />
+    <Content Include="Assets\night_176.png" />
+    <Content Include="Assets\night_179.png" />
+    <Content Include="Assets\night_182.png" />
+    <Content Include="Assets\night_185.png" />
+    <Content Include="Assets\night_200.png" />
+    <Content Include="Assets\night_227.png" />
+    <Content Include="Assets\night_230.png" />
+    <Content Include="Assets\night_248.png" />
+    <Content Include="Assets\night_260.png" />
+    <Content Include="Assets\night_263.png" />
+    <Content Include="Assets\night_266.png" />
+    <Content Include="Assets\night_281.png" />
+    <Content Include="Assets\night_284.png" />
+    <Content Include="Assets\night_293.png" />
+    <Content Include="Assets\night_296.png" />
+    <Content Include="Assets\night_299.png" />
+    <Content Include="Assets\night_302.png" />
+    <Content Include="Assets\night_305.png" />
+    <Content Include="Assets\night_308.png" />
+    <Content Include="Assets\night_311.png" />
+    <Content Include="Assets\night_314.png" />
+    <Content Include="Assets\night_317.png" />
+    <Content Include="Assets\night_320.png" />
+    <Content Include="Assets\night_323.png" />
+    <Content Include="Assets\night_326.png" />
+    <Content Include="Assets\night_329.png" />
+    <Content Include="Assets\night_332.png" />
+    <Content Include="Assets\night_335.png" />
+    <Content Include="Assets\night_338.png" />
+    <Content Include="Assets\night_350.png" />
+    <Content Include="Assets\night_353.png" />
+    <Content Include="Assets\night_356.png" />
+    <Content Include="Assets\night_359.png" />
+    <Content Include="Assets\night_362.png" />
+    <Content Include="Assets\night_365.png" />
+    <Content Include="Assets\night_368.png" />
+    <Content Include="Assets\night_371.png" />
+    <Content Include="Assets\night_374.png" />
+    <Content Include="Assets\night_377.png" />
+    <Content Include="Assets\night_386.png" />
+    <Content Include="Assets\night_389.png" />
+    <Content Include="Assets\night_392.png" />
+    <Content Include="Assets\night_395.png" />
+    <Content Include="Assets\partly_cloudy_day.png" />
+    <Content Include="Assets\partly_cloudy_night.png" />
+    <Content Include="Assets\r01d.png" />
+    <Content Include="Assets\r01n.png" />
+    <Content Include="Assets\r02d.png" />
+    <Content Include="Assets\r02n.png" />
+    <Content Include="Assets\r03d.png" />
+    <Content Include="Assets\r03n.png" />
+    <Content Include="Assets\r04d.png" />
+    <Content Include="Assets\r04n.png" />
+    <Content Include="Assets\r05d.png" />
+    <Content Include="Assets\r05n.png" />
+    <Content Include="Assets\r06d.png" />
+    <Content Include="Assets\r06n.png" />
+    <Content Include="Assets\rain.png" />
+    <Content Include="Assets\s01d.png" />
+    <Content Include="Assets\s01n.png" />
+    <Content Include="Assets\s02d.png" />
+    <Content Include="Assets\s02n.png" />
+    <Content Include="Assets\s03d.png" />
+    <Content Include="Assets\s03n.png" />
+    <Content Include="Assets\s04d.png" />
+    <Content Include="Assets\s04n.png" />
+    <Content Include="Assets\s05d.png" />
+    <Content Include="Assets\s05n.png" />
+    <Content Include="Assets\s06d.png" />
+    <Content Include="Assets\s06n.png" />
+    <Content Include="Assets\sleet.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\snow.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\t01d.png" />
+    <Content Include="Assets\t01n.png" />
+    <Content Include="Assets\t02d.png" />
+    <Content Include="Assets\t02n.png" />
+    <Content Include="Assets\t03d.png" />
+    <Content Include="Assets\t03n.png" />
+    <Content Include="Assets\t04d.png" />
+    <Content Include="Assets\t04n.png" />
+    <Content Include="Assets\t05d.png" />
+    <Content Include="Assets\t05n.png" />
+    <Content Include="Assets\thunderstorm.png" />
+    <Content Include="Assets\u00d.png" />
+    <Content Include="Assets\u00n.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\wind.png" />
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>4.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Settings">
+      <Version>3.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.583944" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MobileWeather\MobileWeather.csproj">
+      <Project>{C53E4E8F-FDE1-4C4C-B5A8-55364C2AF430}</Project>
+      <Name>MobileWeather</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+</Project>
