@@ -23,9 +23,9 @@ namespace MobileWeather
             builder.RegisterType<RuntimeContext>().As<IRuntimeContext>().SingleInstance();
             builder.RegisterType<LocationService>().As<ILocationService>().SingleInstance();
 
-            builder.RegisterType<ApixuService>().SingleInstance();
-            builder.RegisterType<DarkskyService>().SingleInstance();
-            builder.RegisterType<WeatherbitService>().SingleInstance();
+            builder.RegisterType<ApixuService>();
+            builder.RegisterType<DarkskyService>();
+            builder.RegisterType<WeatherbitService>();
 
             builder.Register<IWeatherService>(c =>
             {
@@ -35,13 +35,13 @@ namespace MobileWeather
                 switch (weatherServiceType)
                 {
                     case ServicesEnum.Apixu:
-                        return c.Resolve<ApixuService>(new NamedParameter("lang", twoLetterISOLanguageName));
+                        return c.Resolve<ApixuService>(new NamedParameter("lang", twoLetterISOLanguageName), new NamedParameter("isImperial", AppSettings.IsImperial));
                     case ServicesEnum.Weatherbit:
-                        return c.Resolve<WeatherbitService>(new NamedParameter("lang", twoLetterISOLanguageName));
+                        return c.Resolve<WeatherbitService>(new NamedParameter("lang", twoLetterISOLanguageName), new NamedParameter("isImperial", AppSettings.IsImperial));
                     case ServicesEnum.Darksky:
-                        return c.Resolve<DarkskyService>(new NamedParameter("lang", twoLetterISOLanguageName));
+                        return c.Resolve<DarkskyService>(new NamedParameter("lang", twoLetterISOLanguageName), new NamedParameter("isImperial", AppSettings.IsImperial));
                     default:
-                        return c.Resolve<ApixuService>(new NamedParameter("lang", twoLetterISOLanguageName));
+                        return c.Resolve<ApixuService>(new NamedParameter("lang", twoLetterISOLanguageName), new NamedParameter("isImperial", AppSettings.IsImperial));
                 }
             });
 

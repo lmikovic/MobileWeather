@@ -11,10 +11,6 @@ namespace MobileWeather.ViewModels
     {
         public Command SaveCommand { get; }
 
-        public SettingsViewModel(INavigationService navigationService)
-            : this(navigationService, new RuntimeContext())
-        { }
-
         public SettingsViewModel(INavigationService navigationService, IRuntimeContext runtimeContext)
             : base(navigationService, runtimeContext)
         {

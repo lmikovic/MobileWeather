@@ -18,10 +18,6 @@ namespace MobileWeather.ViewModels
         public Command RefreshCommand { get; }
         public Command ExitCommand { get; }
 
-        public WeatherViewModel(INavigationService navigationService, IWeatherService weatherService)
-            : this(navigationService, weatherService, new RuntimeContext())
-        { }
-
         public WeatherViewModel(INavigationService navigationService, IWeatherService weatherService, IRuntimeContext runtimeContext)
             : base(navigationService, runtimeContext)
         {
@@ -203,7 +199,7 @@ namespace MobileWeather.ViewModels
         private async Task LoadWeather(bool isRefreshing = false)
         {
             WeatherData currentWeather = isRefreshing || string.IsNullOrEmpty(_runtimeContext.CurrentWeather) ?
-                await _weatherService.GetWeather(_runtimeContext.CityName, _runtimeContext.IsImperial) :
+                await _weatherService.GetWeather(_runtimeContext.CityName) :
                 JsonConvert.DeserializeObject<WeatherData>(_runtimeContext.CurrentWeather);
 
             City = currentWeather.City.Name;
@@ -216,7 +212,7 @@ namespace MobileWeather.ViewModels
             Description = currentWeather.Weather.WeatherDescription;
 
             var weatherForecast = isRefreshing || string.IsNullOrEmpty(_runtimeContext.WeatherForecast) ?
-                await _weatherService.GetForecast(_runtimeContext.CityName, 5, _runtimeContext.IsImperial) :
+                await _weatherService.GetForecast(_runtimeContext.CityName, 5) :
                 JsonConvert.DeserializeObject<WeatherForecast>(_runtimeContext.WeatherForecast);
 
             ForecastList = new ObservableCollection<Weather>(weatherForecast.WeatherList);

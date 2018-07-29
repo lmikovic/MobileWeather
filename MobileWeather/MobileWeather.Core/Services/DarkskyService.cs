@@ -14,29 +14,24 @@ namespace MobileWeather.Core.Services
         private readonly IRequestService _requestService;
         private readonly IRuntimeContext _runtimeContext;
         private readonly ILocationService _locationService;
-        
         private readonly string _lang;
+        private readonly string _unit;
 
-        public DarkskyService(IRequestService requestService, ILocationService locationService)
-            : this(requestService, locationService, new RuntimeContext())
-        { }
-
-        public DarkskyService(IRequestService requestService, ILocationService locationService, IRuntimeContext runtimeContext, string lang = "sr")
+        public DarkskyService(IRequestService requestService, ILocationService locationService, IRuntimeContext runtimeContext, string lang = "sr", bool isImperial = false)
         {
             _requestService = requestService;
             _runtimeContext = runtimeContext;
             _locationService = locationService;
             _lang = lang;
+            _unit = GetUnit(isImperial);
         }
 
-        public async Task<WeatherForecast> GetForecast(double latitude, double longitude, int days, bool isImperial)
+        public async Task<WeatherForecast> GetForecast(double latitude, double longitude, int days)
         {
-            string unit = GetUnit(isImperial);
-
             UriBuilder builder = new UriBuilder(_runtimeContext.DarkskyBaseEndpoint)
             {
                 Path = $"forecast/{_runtimeContext.DarkskyKey}/{latitude.ToString(CultureInfo.InvariantCulture)},{longitude.ToString(CultureInfo.InvariantCulture)}",
-                Query = $"exclude=[currently,minutely,hourly,alerts,flags]&units={unit}&lang={_lang}"
+                Query = $"exclude=[currently,minutely,hourly,alerts,flags]&units={_unit}&lang={_lang}"
             };
 
             DarkskyForecastDTO weatherResponse = await _requestService.GetAsync<DarkskyForecastDTO>(builder.Uri);
@@ -50,21 +45,19 @@ namespace MobileWeather.Core.Services
             return weatherForecast;
         }
 
-        public async Task<WeatherForecast> GetForecast(string city, int days, bool isImperial)
+        public async Task<WeatherForecast> GetForecast(string city, int days)
         {
             City cityResponse = await _locationService.GetCityByCityName(city);
-            WeatherForecast weatherForecast = await GetForecast(cityResponse.Latitude, cityResponse.Longitude, days, isImperial);
+            WeatherForecast weatherForecast = await GetForecast(cityResponse.Latitude, cityResponse.Longitude, days);
             return weatherForecast;
         }
 
-        public async Task<WeatherData> GetWeather(double latitude, double longitude, bool isImperial)
+        public async Task<WeatherData> GetWeather(double latitude, double longitude)
         {
-            string unit = GetUnit(isImperial);
-
             UriBuilder builder = new UriBuilder(_runtimeContext.DarkskyBaseEndpoint)
             {
                 Path = $"forecast/{_runtimeContext.DarkskyKey}/{latitude.ToString(CultureInfo.InvariantCulture)},{longitude.ToString(CultureInfo.InvariantCulture)}",
-                Query = $"exclude=[minutely,hourly,daily,alerts,flags]&units={unit}&lang={_lang}"
+                Query = $"exclude=[minutely,hourly,daily,alerts,flags]&units={_unit}&lang={_lang}"
             };
 
             DarkskyDTO weatherResponse = await _requestService.GetAsync<DarkskyDTO>(builder.Uri);
@@ -74,10 +67,10 @@ namespace MobileWeather.Core.Services
             return weather;
         }
 
-        public async Task<WeatherData> GetWeather(string city, bool isImperial)
+        public async Task<WeatherData> GetWeather(string city)
         {
             City cityResponse = await _locationService.GetCityByCityName(city);
-            WeatherData weather = await GetWeather(cityResponse.Latitude, cityResponse.Longitude, isImperial);
+            WeatherData weather = await GetWeather(cityResponse.Latitude, cityResponse.Longitude);
             return weather;
         }
 

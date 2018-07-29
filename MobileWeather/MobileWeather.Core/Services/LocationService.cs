@@ -13,10 +13,6 @@ namespace MobileWeather.Core.Services
         private readonly IRequestService _requestService;
         private readonly IRuntimeContext _runtimeContext;
 
-        public LocationService(IRequestService requestService)
-            : this(requestService, new RuntimeContext())
-        { }
-
         public LocationService(IRequestService requestService, IRuntimeContext runtimeContext)
         {
             _requestService = requestService;

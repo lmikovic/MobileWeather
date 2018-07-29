@@ -14,19 +14,17 @@ namespace MobileWeather.Core.Services
         private readonly IRequestService _requestService;
         private readonly IRuntimeContext _runtimeContext;
         private readonly string _lang;
+        private readonly bool _isImperial;
 
-        public ApixuService(IRequestService requestService)
-            : this(requestService, new RuntimeContext())
-        { }
-
-        public ApixuService(IRequestService requestService, IRuntimeContext runtimeContext, string lang = "sr")
+        public ApixuService(IRequestService requestService, IRuntimeContext runtimeContext, string lang = "sr", bool isImperial = false)
         {
             _requestService = requestService;
             _runtimeContext = runtimeContext;
             _lang = lang;
+            _isImperial = isImperial;
         }
 
-        public async Task<WeatherForecast> GetForecast(double latitude, double longitude, int days, bool isImperial)
+        public async Task<WeatherForecast> GetForecast(double latitude, double longitude, int days)
         {
             UriBuilder builder = new UriBuilder(_runtimeContext.ApixuBaseEndpoint)
             {
@@ -36,12 +34,12 @@ namespace MobileWeather.Core.Services
 
             ApixuForecastDTO weatherResponse = await _requestService.GetAsync<ApixuForecastDTO>(builder.Uri);
             ApixuMapper apixuMapper = new ApixuMapper();
-            WeatherForecast weatherForecast = apixuMapper.ToDomainEntities(weatherResponse, isImperial);
+            WeatherForecast weatherForecast = apixuMapper.ToDomainEntities(weatherResponse, _isImperial);
 
             return weatherForecast;
         }
 
-        public async Task<WeatherForecast> GetForecast(string city, int days, bool isImperial)
+        public async Task<WeatherForecast> GetForecast(string city, int days)
         {
             UriBuilder builder = new UriBuilder(_runtimeContext.ApixuBaseEndpoint)
             {
@@ -51,12 +49,12 @@ namespace MobileWeather.Core.Services
 
             ApixuForecastDTO weatherResponse = await _requestService.GetAsync<ApixuForecastDTO>(builder.Uri);
             ApixuMapper apixuMapper = new ApixuMapper();
-            WeatherForecast weatherForecast = apixuMapper.ToDomainEntities(weatherResponse, isImperial);
+            WeatherForecast weatherForecast = apixuMapper.ToDomainEntities(weatherResponse, _isImperial);
 
             return weatherForecast;
         }
 
-        public async Task<WeatherData> GetWeather(double latitude, double longitude, bool isImperial)
+        public async Task<WeatherData> GetWeather(double latitude, double longitude)
         {
             UriBuilder builder = new UriBuilder(_runtimeContext.ApixuBaseEndpoint)
             {
@@ -66,12 +64,12 @@ namespace MobileWeather.Core.Services
 
             ApixuDTO weatherResponse = await _requestService.GetAsync<ApixuDTO>(builder.Uri);
             ApixuMapper apixuMapper = new ApixuMapper();
-            WeatherData weather = apixuMapper.ToDomainEntity(weatherResponse, isImperial);
+            WeatherData weather = apixuMapper.ToDomainEntity(weatherResponse, _isImperial);
 
             return weather;
         }
 
-        public async Task<WeatherData> GetWeather(string city, bool isImperial)
+        public async Task<WeatherData> GetWeather(string city)
         {
             UriBuilder builder = new UriBuilder(_runtimeContext.ApixuBaseEndpoint)
             {
@@ -81,7 +79,7 @@ namespace MobileWeather.Core.Services
 
             ApixuDTO weatherResponse = await _requestService.GetAsync<ApixuDTO>(builder.Uri);
             ApixuMapper apixuMapper = new ApixuMapper();
-            WeatherData weather = apixuMapper.ToDomainEntity(weatherResponse, isImperial);
+            WeatherData weather = apixuMapper.ToDomainEntity(weatherResponse, _isImperial);
 
             return weather;
         }
