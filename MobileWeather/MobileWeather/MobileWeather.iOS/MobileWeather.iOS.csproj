@@ -678,4 +678,178 @@
   <ItemGroup>
     <BundleResource Include="Resources\s02d.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather43.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accuweather1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap01d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap01n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap02d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap02n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap03d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap03n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap04d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap04n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap09d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap09n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap10d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap10n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap11d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap11n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap13d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap13n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap50d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openweathermap50n.png" />
+  </ItemGroup>
 </Project>

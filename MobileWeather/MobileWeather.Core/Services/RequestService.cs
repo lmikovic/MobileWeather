@@ -4,6 +4,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using RestSharp;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -29,31 +30,31 @@ namespace MobileWeather.Core.Services
             _serializerSettings.Converters.Add(new StringEnumConverter());
         }
 
-        public async Task<TResult> GetAsync<TResult>(Uri uri, string token = "")
+        public async Task<TResult> GetAsync<TResult>(Uri uri, Dictionary<string,string> header = null)
         {
-            return await ExecuteHttpMethodAsync<TResult, TResult>(uri, Method.GET, token);
+            return await ExecuteHttpMethodAsync<TResult, TResult>(uri, Method.GET, header);
         }
 
-        public async Task<TResult> PostAsync<TRequest, TResult>(Uri uri, TRequest data, string token = "")
+        public async Task<TResult> PostAsync<TRequest, TResult>(Uri uri, TRequest data, Dictionary<string, string> header = null)
         {
-            return await ExecuteHttpMethodAsync<TRequest, TResult>(uri, Method.POST, token, data);
+            return await ExecuteHttpMethodAsync<TRequest, TResult>(uri, Method.POST, header, data);
         }
 
-        public async Task<TResult> PutAsync<TRequest, TResult>(Uri uri, TRequest data, string token = "")
+        public async Task<TResult> PutAsync<TRequest, TResult>(Uri uri, TRequest data, Dictionary<string, string> header = null)
         {
-            return await ExecuteHttpMethodAsync<TRequest, TResult>(uri, Method.PUT, token, data);
+            return await ExecuteHttpMethodAsync<TRequest, TResult>(uri, Method.PUT, header, data);
         }
 
-        public async Task<TResult> DeleteAsync<TRequest, TResult>(Uri uri, TRequest data, string token = "")
+        public async Task<TResult> DeleteAsync<TRequest, TResult>(Uri uri, TRequest data, Dictionary<string, string> header = null)
         {
-            return await ExecuteHttpMethodAsync<TRequest, TResult>(uri, Method.DELETE, token, data);
+            return await ExecuteHttpMethodAsync<TRequest, TResult>(uri, Method.DELETE, header, data);
         }
 
-        private async Task<TResult> ExecuteHttpMethodAsync<TRequest, TResult>(Uri uri, Method httpMethod, string token = "", TRequest data = default(TRequest))
+        private async Task<TResult> ExecuteHttpMethodAsync<TRequest, TResult>(Uri uri, Method httpMethod, Dictionary<string, string> header = null, TRequest data = default(TRequest))
         {
             _restClient.BaseUrl = uri;
 
-            RestRequest restRequest = CreateRestRequest(token);
+            RestRequest restRequest = CreateRestRequest(header);
             restRequest.Method = httpMethod;
 
             if ((httpMethod == Method.POST || httpMethod == Method.PUT) && data != null)
@@ -69,15 +70,15 @@ namespace MobileWeather.Core.Services
             return await Task.Run(() => JsonConvert.DeserializeObject<TResult>(content, _serializerSettings));
         }
 
-        private RestRequest CreateRestRequest(string token = "")
+        private RestRequest CreateRestRequest(Dictionary<string, string> header = null)
         {
             var request = new RestRequest();
 
             request.AddHeader("Accept", "application/json");
 
-            if (!string.IsNullOrEmpty(token))
+            foreach(var headerItem in header ?? new Dictionary<string, string>())
             {
-                request.AddHeader("Authorization", $"Bearer {token}");
+                request.AddHeader(headerItem.Key, headerItem.Value);
             }
 
             return request;

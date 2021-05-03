@@ -4,7 +4,6 @@ using MobileWeather.Core.Services.Interfaces;
 using MobileWeather.Core.Settings;
 using MobileWeather.ViewModels;
 using MobileWeather.Views;
-using System;
 using Xamarin.Forms;
 
 namespace MobileWeather
@@ -23,26 +22,16 @@ namespace MobileWeather
             builder.RegisterType<RuntimeContext>().As<IRuntimeContext>().SingleInstance();
             builder.RegisterType<LocationService>().As<ILocationService>().SingleInstance();
 
-            builder.RegisterType<ApixuService>();
-            builder.RegisterType<DarkskyService>();
-            builder.RegisterType<WeatherbitService>();
+            builder.RegisterType<DarkskyService>().Named<IWeatherService>("Darksky");
+            builder.RegisterType<WeatherbitService>().Named<IWeatherService>("Weatherbit");
+            builder.RegisterType<AmbeeService>().Named<IWeatherService>("Ambee");
+            builder.RegisterType<AccuweatherService>().Named<IWeatherService>("Accuweather");
+            builder.RegisterType<OpenWeatherMapService>().Named<IWeatherService>("OpenWeatherMap");
 
-            builder.Register<IWeatherService>(c =>
+            builder.Register(c =>
             {
-                ServicesEnum weatherServiceType = (ServicesEnum)Enum.Parse(typeof(ServicesEnum), AppSettings.SelectedWeatherServices);
                 var twoLetterISOLanguageName = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-
-                switch (weatherServiceType)
-                {
-                    case ServicesEnum.Apixu:
-                        return c.Resolve<ApixuService>(new NamedParameter("lang", twoLetterISOLanguageName), new NamedParameter("isImperial", AppSettings.IsImperial));
-                    case ServicesEnum.Weatherbit:
-                        return c.Resolve<WeatherbitService>(new NamedParameter("lang", twoLetterISOLanguageName), new NamedParameter("isImperial", AppSettings.IsImperial));
-                    case ServicesEnum.Darksky:
-                        return c.Resolve<DarkskyService>(new NamedParameter("lang", twoLetterISOLanguageName), new NamedParameter("isImperial", AppSettings.IsImperial));
-                    default:
-                        return c.Resolve<ApixuService>(new NamedParameter("lang", twoLetterISOLanguageName), new NamedParameter("isImperial", AppSettings.IsImperial));
-                }
+                return c.ResolveNamed<IWeatherService>(AppSettings.SelectedWeatherServices, new NamedParameter("lang", twoLetterISOLanguageName), new NamedParameter("isImperial", AppSettings.IsImperial));
             });
 
             builder.RegisterType<SettingsViewModel>();

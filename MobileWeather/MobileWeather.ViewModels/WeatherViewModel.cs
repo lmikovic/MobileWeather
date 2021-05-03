@@ -219,10 +219,10 @@ namespace MobileWeather.ViewModels
 
             if (isRefreshing || string.IsNullOrEmpty(_runtimeContext.CurrentWeather) || string.IsNullOrEmpty(_runtimeContext.WeatherForecast))
             {
-                _runtimeContext.UpdateTime = DateTime.Now;
+                _runtimeContext.UpdateTime = DateTime.Now.ToString();
             }
 
-            LastUpdate = _runtimeContext.UpdateTime;
+            LastUpdate = DateTime.Parse(_runtimeContext.UpdateTime);
 
             _runtimeContext.CurrentWeather = JsonConvert.SerializeObject(currentWeather);
             _runtimeContext.WeatherForecast = JsonConvert.SerializeObject(weatherForecast);

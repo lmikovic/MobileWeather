@@ -1,17 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MobileWeather.Core.Settings
 {
     public interface IRuntimeContext
     {
-        string ApixuBaseEndpoint { get; }
-        string DarkskyBaseEndpoint { get; }
-        string WeatherbitBaseEndpoint { get; }
+        string GetBaseEndpoint(string serviceName);
+        string GetKey(string serviceName);
+        IEnumerable<string> GetServices();
+
         string LocationBaseEndpoint { get; }
 
-        string ApixuKey { get; }
-        string DarkskyKey { get; }
-        string WeatherbitKey { get; }
         string BingMapKey { get; }
 
         string CityName { get; set; }
@@ -20,7 +19,7 @@ namespace MobileWeather.Core.Settings
 
         string CurrentWeather { get; set; }
         string WeatherForecast { get; set; }
-        DateTime UpdateTime { get; set; }
+        string UpdateTime { get; set; }
         void RemoveCachedWeather();
     }
 }

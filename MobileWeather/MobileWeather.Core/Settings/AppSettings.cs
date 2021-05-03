@@ -1,6 +1,5 @@
 ﻿using Plugin.Settings;
 using Plugin.Settings.Abstractions;
-using System;
 
 namespace MobileWeather.Core.Settings
 {
@@ -10,12 +9,18 @@ namespace MobileWeather.Core.Settings
         private const string DefaultApixuBaseEndpoint = "http://api.apixu.com";
         private const string DefaultDarkskyBaseEndpoint = "https://api.darksky.net";
         private const string DefaultWeatherbitBaseEndpoint = "http://api.weatherbit.io";
+        private const string DefaultAmbeeBaseEndpoint = "https://api.ambeedata.com";
+        private const string DefaultAccuweatherBaseEndpoint = "http://dataservice.accuweather.com";
+        private const string DefaultOpenWeatherMapBaseEndpoint = "https://api.openweathermap.org";
         private const string DefaultBingLocationBaseEndpoint = "http://dev.virtualearth.net";
 
         // Keys
         private const string DefaultApixuKey = "9352d4c3623340caa9d135516170309";
         private const string DefaultDarkskyKey = "1becc6edf70846062ff32a277ad56104";
         private const string DefaultWeatherbitKey = "16556b95929f49939fc0c034c6f10070";
+        private const string DefaultAmbeeKey = "b3gpXG0tWi64r4DxBiAl77fE8rI5dh1maCwmGqFC";
+        private const string DefaultAccuweatherKey = "fneGhKXf54AbGkFq9BvCGe3f3glYfo6V";
+        private const string DefaultOpenWeatherMapKey = "c2b5c9b98461214bc2cc6ab607d5455a";
         private const string DefaultBingMapKey = "Aqa9k7WZbF9AvxITJ-4fG_F2po48W4R3vFcxzTFD8iLGQrbFpGKConi1ZqjJ5i_f";
 
         private static ISettings Settings => CrossSettings.Current;
@@ -41,6 +46,21 @@ namespace MobileWeather.Core.Settings
             get => Settings.GetValueOrDefault(nameof(LocationBaseEndpoint), DefaultBingLocationBaseEndpoint);
         }
 
+        public static string AmbeeBaseEndpoint
+        {
+            get => Settings.GetValueOrDefault(nameof(AmbeeBaseEndpoint), DefaultAmbeeBaseEndpoint);
+        }
+
+        public static string AccuweatherBaseEndpoint
+        {
+            get => Settings.GetValueOrDefault(nameof(AccuweatherBaseEndpoint), DefaultAccuweatherBaseEndpoint);
+        }
+
+        public static string OpenWeatherMapBaseEndpoint
+        {
+            get => Settings.GetValueOrDefault(nameof(OpenWeatherMapBaseEndpoint), DefaultOpenWeatherMapBaseEndpoint);
+        }
+
         // API Keys
         public static string ApixuKey
         {
@@ -60,6 +80,21 @@ namespace MobileWeather.Core.Settings
         public static string BingMapKey
         {
             get => Settings.GetValueOrDefault(nameof(BingMapKey), DefaultBingMapKey);
+        }
+
+        public static string AmbeeKey
+        {
+            get => Settings.GetValueOrDefault(nameof(AmbeeKey), DefaultAmbeeKey);
+        }
+
+        public static string AccuweatherKey
+        {
+            get => Settings.GetValueOrDefault(nameof(AccuweatherKey), DefaultAccuweatherKey);
+        }
+
+        public static string OpenWeatherMapKey
+        {
+            get => Settings.GetValueOrDefault(nameof(OpenWeatherMapKey), DefaultOpenWeatherMapKey);
         }
 
         // Variables
@@ -100,9 +135,9 @@ namespace MobileWeather.Core.Settings
             set => Settings.AddOrUpdateValue(nameof(WeatherForecast), value);
         }
 
-        public static DateTime UpdateTime
+        public static string UpdateTime
         {
-            get => Settings.GetValueOrDefault(nameof(UpdateTime), default(DateTime));
+            get => Settings.GetValueOrDefault(nameof(UpdateTime), default(string));
 
             set => Settings.AddOrUpdateValue(nameof(UpdateTime), value);
         }

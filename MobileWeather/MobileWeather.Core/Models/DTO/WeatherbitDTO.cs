@@ -28,7 +28,7 @@
     public class WeatherbitData : IWeatherbitCity
     {
         public string wind_cdir { get; set; }
-        public int rh { get; set; }
+        public float rh { get; set; }
         public string pod { get; set; }
         public float lon { get; set; }
         public float pres { get; set; }
@@ -66,12 +66,12 @@
         public float ozone { get; set; }
         public float moon_phase { get; set; }
         public float wind_gust_spd { get; set; }
-        public int snow_depth { get; set; }
+        public float snow_depth { get; set; }
         public int sunrise_ts { get; set; }
         public float app_min_temp { get; set; }
         public int pop { get; set; }
         public float app_max_temp { get; set; }
-        public int snow { get; set; }
+        public float snow { get; set; }
         public string valid_date { get; set; }
         public object max_dhi { get; set; }
         public float clouds_hi { get; set; }

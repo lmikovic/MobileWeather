@@ -15,6 +15,8 @@ namespace MobileWeather.Core.Services
         private readonly IRuntimeContext _runtimeContext;
         private readonly string _lang;
         private readonly string _unit;
+        private readonly string _baseEndpoint;
+        private readonly string _serviceKey;
 
         public WeatherbitService(IRequestService requestService, IRuntimeContext runtimeContext, string lang = "sr", bool isImperial = false)
         {
@@ -22,14 +24,16 @@ namespace MobileWeather.Core.Services
             _runtimeContext = runtimeContext;
             _lang = lang;
             _unit = GetUnit(isImperial);
+            _baseEndpoint = runtimeContext.GetBaseEndpoint(GetType().Name);
+            _serviceKey = runtimeContext.GetKey(GetType().Name);
         }
 
         public async Task<WeatherForecast> GetForecast(double latitude, double longitude, int days)
         {
-            UriBuilder builder = new UriBuilder(_runtimeContext.WeatherbitBaseEndpoint)
+            UriBuilder builder = new UriBuilder(_baseEndpoint)
             {
                 Path = "v2.0/forecast/daily",
-                Query = $"lat={latitude.ToString(CultureInfo.InvariantCulture)}&lon={longitude.ToString(CultureInfo.InvariantCulture)}&units={_unit}&days={days}&lang={_lang}&key={_runtimeContext.WeatherbitKey}"
+                Query = $"lat={latitude.ToString(CultureInfo.InvariantCulture)}&lon={longitude.ToString(CultureInfo.InvariantCulture)}&units={_unit}&days={days}&lang={_lang}&key={_serviceKey}"
             };
 
             WeatherbitForecastDTO weatherResponse = await _requestService.GetAsync<WeatherbitForecastDTO>(builder.Uri);
@@ -41,10 +45,10 @@ namespace MobileWeather.Core.Services
 
         public async Task<WeatherForecast> GetForecast(string city, int days)
         {
-            UriBuilder builder = new UriBuilder(_runtimeContext.WeatherbitBaseEndpoint)
+            UriBuilder builder = new UriBuilder(_baseEndpoint)
             {
                 Path = "v2.0/forecast/daily",
-                Query = $"city={city}&units={_unit}&days={days}&lang={_lang}&key={_runtimeContext.WeatherbitKey}"
+                Query = $"city={city}&units={_unit}&days={days}&lang={_lang}&key={_serviceKey}"
             };
 
             WeatherbitForecastDTO weatherResponse = await _requestService.GetAsync<WeatherbitForecastDTO>(builder.Uri);
@@ -56,10 +60,10 @@ namespace MobileWeather.Core.Services
 
         public async Task<WeatherData> GetWeather(double latitude, double longitude)
         {
-            UriBuilder builder = new UriBuilder(_runtimeContext.WeatherbitBaseEndpoint)
+            UriBuilder builder = new UriBuilder(_baseEndpoint)
             {
                 Path = "v2.0/current",
-                Query = $"lat={latitude.ToString(CultureInfo.InvariantCulture)}&lon={longitude.ToString(CultureInfo.InvariantCulture)}&units={_unit}&lang={_lang}&key={_runtimeContext.WeatherbitKey}"
+                Query = $"lat={latitude.ToString(CultureInfo.InvariantCulture)}&lon={longitude.ToString(CultureInfo.InvariantCulture)}&units={_unit}&lang={_lang}&key={_serviceKey}"
             };
 
             WeatherbitDTO weatherResponse = await _requestService.GetAsync<WeatherbitDTO>(builder.Uri);
@@ -71,10 +75,10 @@ namespace MobileWeather.Core.Services
 
         public async Task<WeatherData> GetWeather(string city)
         {
-            UriBuilder builder = new UriBuilder(_runtimeContext.WeatherbitBaseEndpoint)
+            UriBuilder builder = new UriBuilder(_baseEndpoint)
             {
                 Path = "v2.0/current",
-                Query = $"city={city}&units={_unit}&lang={_lang}&key={_runtimeContext.WeatherbitKey}"
+                Query = $"city={city}&units={_unit}&lang={_lang}&key={_serviceKey}"
             };
 
             WeatherbitDTO weatherResponse = await _requestService.GetAsync<WeatherbitDTO>(builder.Uri);

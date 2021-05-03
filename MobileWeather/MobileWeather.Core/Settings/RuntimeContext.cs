@@ -1,38 +1,17 @@
-﻿using System;
+﻿using MobileWeather.Core.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MobileWeather.Core.Settings
 {
     public class RuntimeContext : IRuntimeContext
     {
-        public string ApixuBaseEndpoint
-        {
-            get => AppSettings.ApixuBaseEndpoint;
-        }
-        public string DarkskyBaseEndpoint
-        {
-            get => AppSettings.DarkskyBaseEndpoint;
-        }
-        public string WeatherbitBaseEndpoint
-        {
-            get => AppSettings.WeatherbitBaseEndpoint;
-        }
         public string LocationBaseEndpoint
         {
             get => AppSettings.LocationBaseEndpoint;
         }
 
-        public string ApixuKey
-        {
-            get => AppSettings.ApixuKey;
-        }
-        public string DarkskyKey
-        {
-            get => AppSettings.DarkskyKey;
-        }
-        public string WeatherbitKey
-        {
-            get => AppSettings.WeatherbitKey;
-        }
         public string BingMapKey
         {
             get => AppSettings.BingMapKey;
@@ -68,7 +47,7 @@ namespace MobileWeather.Core.Settings
             set => AppSettings.WeatherForecast = value;
         }
 
-        public DateTime UpdateTime
+        public string UpdateTime
         {
             get => AppSettings.UpdateTime;
             set => AppSettings.UpdateTime = value;
@@ -77,6 +56,34 @@ namespace MobileWeather.Core.Settings
         public void RemoveCachedWeather()
         {
             AppSettings.RemoveCachedWeather();
+        }
+
+        public IEnumerable<string> GetServices()
+        {
+            var type = typeof(IWeatherService);
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                .Where(assembly => !assembly.FullName.Contains("Hidden") && !assembly.FullName.Contains("Private"))
+                .SelectMany(s => s.GetTypes())
+                .Where(p => type.IsAssignableFrom(p) && p.IsClass);
+
+            return types.Select(x => x.Name.Replace("Service", ""));
+        }
+
+        public string GetBaseEndpoint(string serviceName)
+        {
+            return GetValueByPostfix(serviceName, "BaseEndpoint");
+        }
+
+        public string GetKey(string serviceName)
+        {
+            return GetValueByPostfix(serviceName, "Key");
+        }
+
+        private string GetValueByPostfix(string serviceName, string postfix)
+        {
+            var type = typeof(AppSettings);
+            var name = $"{serviceName.Replace("Service", "")}{postfix}";
+            return type.GetProperty(name).GetValue(null).ToString();
         }
     }
 }

@@ -11,7 +11,7 @@
     <AssemblyName>MobileWeather.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
@@ -115,6 +115,46 @@
     <Content Include="Assets\a05n.png" />
     <Content Include="Assets\a06d.png" />
     <Content Include="Assets\a06n.png" />
+    <Content Include="Assets\accuweather1.png" />
+    <Content Include="Assets\accuweather11.png" />
+    <Content Include="Assets\accuweather12.png" />
+    <Content Include="Assets\accuweather13.png" />
+    <Content Include="Assets\accuweather14.png" />
+    <Content Include="Assets\accuweather15.png" />
+    <Content Include="Assets\accuweather16.png" />
+    <Content Include="Assets\accuweather17.png" />
+    <Content Include="Assets\accuweather18.png" />
+    <Content Include="Assets\accuweather19.png" />
+    <Content Include="Assets\accuweather2.png" />
+    <Content Include="Assets\accuweather20.png" />
+    <Content Include="Assets\accuweather21.png" />
+    <Content Include="Assets\accuweather22.png" />
+    <Content Include="Assets\accuweather23.png" />
+    <Content Include="Assets\accuweather24.png" />
+    <Content Include="Assets\accuweather25.png" />
+    <Content Include="Assets\accuweather26.png" />
+    <Content Include="Assets\accuweather29.png" />
+    <Content Include="Assets\accuweather3.png" />
+    <Content Include="Assets\accuweather30.png" />
+    <Content Include="Assets\accuweather31.png" />
+    <Content Include="Assets\accuweather32.png" />
+    <Content Include="Assets\accuweather33.png" />
+    <Content Include="Assets\accuweather34.png" />
+    <Content Include="Assets\accuweather35.png" />
+    <Content Include="Assets\accuweather36.png" />
+    <Content Include="Assets\accuweather37.png" />
+    <Content Include="Assets\accuweather38.png" />
+    <Content Include="Assets\accuweather39.png" />
+    <Content Include="Assets\accuweather4.png" />
+    <Content Include="Assets\accuweather40.png" />
+    <Content Include="Assets\accuweather41.png" />
+    <Content Include="Assets\accuweather42.png" />
+    <Content Include="Assets\accuweather43.png" />
+    <Content Include="Assets\accuweather44.png" />
+    <Content Include="Assets\accuweather5.png" />
+    <Content Include="Assets\accuweather6.png" />
+    <Content Include="Assets\accuweather7.png" />
+    <Content Include="Assets\accuweather8.png" />
     <Content Include="Assets\c01d.png" />
     <Content Include="Assets\c01n.png" />
     <Content Include="Assets\c02d.png" />
@@ -234,6 +274,24 @@
     <Content Include="Assets\night_389.png" />
     <Content Include="Assets\night_392.png" />
     <Content Include="Assets\night_395.png" />
+    <Content Include="Assets\openweathermap01d.png" />
+    <Content Include="Assets\openweathermap01n.png" />
+    <Content Include="Assets\openweathermap02d.png" />
+    <Content Include="Assets\openweathermap02n.png" />
+    <Content Include="Assets\openweathermap03d.png" />
+    <Content Include="Assets\openweathermap03n.png" />
+    <Content Include="Assets\openweathermap04d.png" />
+    <Content Include="Assets\openweathermap04n.png" />
+    <Content Include="Assets\openweathermap09d.png" />
+    <Content Include="Assets\openweathermap09n.png" />
+    <Content Include="Assets\openweathermap10d.png" />
+    <Content Include="Assets\openweathermap10n.png" />
+    <Content Include="Assets\openweathermap11d.png" />
+    <Content Include="Assets\openweathermap11n.png" />
+    <Content Include="Assets\openweathermap13d.png" />
+    <Content Include="Assets\openweathermap13n.png" />
+    <Content Include="Assets\openweathermap50d.png" />
+    <Content Include="Assets\openweathermap50n.png" />
     <Content Include="Assets\partly_cloudy_day.png" />
     <Content Include="Assets\partly_cloudy_night.png" />
     <Content Include="Assets\r01d.png" />

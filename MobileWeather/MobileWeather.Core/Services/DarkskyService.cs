@@ -16,6 +16,8 @@ namespace MobileWeather.Core.Services
         private readonly ILocationService _locationService;
         private readonly string _lang;
         private readonly string _unit;
+        private readonly string _baseEndpoint;
+        private readonly string _serviceKey;
 
         public DarkskyService(IRequestService requestService, ILocationService locationService, IRuntimeContext runtimeContext, string lang = "sr", bool isImperial = false)
         {
@@ -24,13 +26,15 @@ namespace MobileWeather.Core.Services
             _locationService = locationService;
             _lang = lang;
             _unit = GetUnit(isImperial);
+            _baseEndpoint = runtimeContext.GetBaseEndpoint(GetType().Name);
+            _serviceKey = runtimeContext.GetKey(GetType().Name);
         }
 
         public async Task<WeatherForecast> GetForecast(double latitude, double longitude, int days)
         {
-            UriBuilder builder = new UriBuilder(_runtimeContext.DarkskyBaseEndpoint)
+            UriBuilder builder = new UriBuilder(_baseEndpoint)
             {
-                Path = $"forecast/{_runtimeContext.DarkskyKey}/{latitude.ToString(CultureInfo.InvariantCulture)},{longitude.ToString(CultureInfo.InvariantCulture)}",
+                Path = $"forecast/{_serviceKey}/{latitude.ToString(CultureInfo.InvariantCulture)},{longitude.ToString(CultureInfo.InvariantCulture)}",
                 Query = $"exclude=[currently,minutely,hourly,alerts,flags]&units={_unit}&lang={_lang}"
             };
 
@@ -54,9 +58,9 @@ namespace MobileWeather.Core.Services
 
         public async Task<WeatherData> GetWeather(double latitude, double longitude)
         {
-            UriBuilder builder = new UriBuilder(_runtimeContext.DarkskyBaseEndpoint)
+            UriBuilder builder = new UriBuilder(_baseEndpoint)
             {
-                Path = $"forecast/{_runtimeContext.DarkskyKey}/{latitude.ToString(CultureInfo.InvariantCulture)},{longitude.ToString(CultureInfo.InvariantCulture)}",
+                Path = $"forecast/{_serviceKey}/{latitude.ToString(CultureInfo.InvariantCulture)},{longitude.ToString(CultureInfo.InvariantCulture)}",
                 Query = $"exclude=[minutely,hourly,daily,alerts,flags]&units={_unit}&lang={_lang}"
             };
 
